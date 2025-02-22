@@ -1,7 +1,7 @@
 // @ts-check
 import partytown from "@astrojs/partytown";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,5 +14,13 @@ export default defineConfig({
   },
   image: {
     experimentalLayout: "responsive",
+  },
+  env: {
+    schema: {
+      GOOGLE_ANALYTICS_ID: envField.string({
+        context: "client",
+        access: "public",
+      }),
+    },
   },
 });
