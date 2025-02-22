@@ -1,0 +1,48 @@
+---
+import Picture from "astro/components/Picture.astro";
+import cn from "@meltdownjs/cn";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  alternative?: boolean;
+  restProps?: HTMLAttributes<"div">;
+}
+
+const {
+  title,
+  description,
+  image,
+  alternative = false,
+  restProps,
+} = Astro.props;
+
+const classes = restProps?.class;
+---
+
+<div
+  {...restProps}
+  class={cn(
+    "flex flex-1 justify-between max-md:flex-col",
+    alternative && "bg-gray-100",
+    classes,
+  )}
+>
+  <div
+    class="3xl:ml-0 3xl:my-0 3xl:mr-0 my-6 mr-2 ml-6 grid flex-grow justify-center gap-3 self-center"
+  >
+    <slot />
+    <h2 class="text-4xl font-semibold">{title}</h2>
+    <p class="text-lg">{description}</p>
+  </div>
+  <div class="container p-12 lg:w-1/2">
+    <Picture
+      class="rounded-xl shadow-2xl"
+      formats={["avif", "webp"]}
+      src={image}
+      alt="Dátiles"
+    />
+  </div>
+</div>

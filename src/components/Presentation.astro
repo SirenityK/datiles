@@ -1,0 +1,64 @@
+---
+import Hero from "./Hero.astro";
+import Heart from "lucide-astro/Heart";
+import datiles from "../assets/datiles.png";
+import Recycle from "lucide-astro/Recycle";
+import Users from "lucide-astro/Users";
+import { description, PageRefs } from "../logic";
+import type { ComponentProps } from "astro/types";
+
+const data: (ComponentProps<typeof Hero> & {
+  Icon: typeof Heart;
+  color: string;
+})[] = [
+  {
+    title: "Apoya a la comunidad",
+    description:
+      "Los dátiles llegan a instituciones que cuidan de sectores vulnerables, mejorando su nutrición",
+    image: datiles,
+    Icon: Heart,
+    color: "red",
+  },
+  {
+    title: "Reducimos el desperdicio de alimentos",
+    description:
+      "Aprovechamos el exceso de producción, así evitamos la pérdida innecesaria de alimentos",
+    image: datiles,
+    Icon: Recycle,
+    color: "rgb(34 197 94)",
+  },
+  {
+    title: "Impacto social positivo",
+    description:
+      "Fomenta la solidaridad en la cultura entre productores, instituciones y comunidad",
+    image: datiles,
+    Icon: Users,
+    color: "blue",
+  },
+];
+---
+
+<div
+  class="grid w-full justify-center bg-yellow-100 py-32 text-center xl:py-56"
+>
+  <h1 class="font-playfair text-5xl font-bold">Dona dátiles, nutre vidas</h1>
+  <p class="mx-2 max-lg:my-6">
+    {description}
+  </p>
+  <div class="mt-8">
+    <a class="text-white" id="btn" href={PageRefs.contact}>Donar ahora</a>
+  </div>
+</div>
+
+{
+  data.map((obj, index) => (
+    <Hero
+      title={obj.title}
+      description={obj.description}
+      image={obj.image}
+      alternative={index % 2 === 1}
+    >
+      <obj.Icon size="64" color={obj.color} />
+    </Hero>
+  ))
+}
