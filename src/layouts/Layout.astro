@@ -26,8 +26,10 @@ const GTagScript = `function a(){dataLayer.push(arguments)}window.dataLayer=wind
     <script type="text/partytown" set:html={GTagScript} />
   </head>
   <body>
-    <Header />
-    <slot />
+    <div class="min-h-screen">
+      <Header />
+      <slot />
+    </div>
     <Footer />
   </body>
 </html>
