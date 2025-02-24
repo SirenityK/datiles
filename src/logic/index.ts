@@ -2,9 +2,9 @@ import colors from "tailwindcss/colors";
 
 export enum PageRefs {
   reasons = "reasons",
-  reasonsHash = `#${PageRefs.reasons}`,
+  reasonsHash = `/#${PageRefs.reasons}`,
   joinUs = "how-to-contribute",
-  joinUsHash = `#${PageRefs.joinUs}`,
+  joinUsHash = `/#${PageRefs.joinUs}`,
   contact = "/contact",
 }
 
