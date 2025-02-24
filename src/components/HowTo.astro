@@ -1,5 +1,39 @@
-<h1 class="text-center text-4xl font-bold">
-  Cómo puedes trabajar con nosotros
-</h1>
+---
+import Home from "lucide-astro/Home";
+import Package from "lucide-astro/Package";
+import Truck from "lucide-astro/Truck";
+import Steps from "./Steps.astro";
+import type { Props as StepsProps } from "./Steps.astro";
+import { Palette, PageRefs } from "../logic";
 
-<div class="flex"></div>
+const steps: StepsProps["steps"] = [
+  {
+    Icon: Package,
+    color: Palette.yellow,
+    title: "Nosotros coordinamos la logística",
+    description:
+      "Recolectamos y entregamos los dátiles a las instituciones beneficiarias",
+  },
+  {
+    Icon: Truck,
+    color: Palette.blue,
+    title: "Hogares y asilos reciben nutrición",
+    description: "Se integra a la dieta de niños y adultos mayores",
+  },
+  {
+    Icon: Home,
+    color: Palette.green,
+    title: "Tú decides cuánto donar",
+    description: "Mínimo de 5 kilogramos",
+  },
+];
+---
+
+<section id={PageRefs.joinUs} class="container mx-auto my-16 w-full px-4 py-4">
+  <h2 class="mb-12 text-center text-3xl font-bold">
+    Cómo puedes trabajar con nosotros
+  </h2>
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+    <Steps steps={steps} />
+  </div>
+</section>

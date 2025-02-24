@@ -3,21 +3,29 @@ import { PageRefs } from "../logic";
 import TreePalm from "lucide-astro/TreePalm";
 
 const links = [
-  { href: PageRefs.reasons, text: "Razones" },
-  { href: PageRefs.howToContribute, text: "Contribuir" },
+  { href: PageRefs.reasonsHash, text: "Razones" },
+  { href: PageRefs.joinUsHash, text: "Contribuir" },
   { href: PageRefs.contact, text: "Contacto" },
 ];
 ---
 
 <nav class="flex w-full bg-primary p-4 text-white max-sm:justify-center">
-  <div class="mr-auto flex gap-1 max-sm:hidden">
-    <TreePalm class="mr-auto" />
-    <h1 class="font-bold">NODESS</h1>
-  </div>
-  <div class="lg:mr-auto">
+  <a
+    class="mr-auto flex gap-1 min-[370px]:max-[441px]:mr-0"
+    type="button"
+    href="/"
+  >
+    <TreePalm />
+    <h1 class="hidden font-bold max-[370px]:block min-[441px]:block">NODESS</h1>
+  </a>
+  <div class="max-[370px]:hidden lg:mr-auto">
     {
       links.map((link) => (
-        <a class="rounded-md px-4 py-2 hover:bg-primary-focus" href={link.href}>
+        <a
+          class="btn"
+          class="rounded-md px-4 py-2 hover:bg-primary-focus"
+          href={link.href}
+        >
           {link.text}
         </a>
       ))

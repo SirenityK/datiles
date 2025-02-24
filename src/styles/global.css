@@ -9,6 +9,14 @@
   --color-primary-focus: var(--color-green-700);
 }
 
-a#btn {
-  @apply w-fit rounded-lg bg-primary px-4 py-2 hover:cursor-pointer hover:bg-primary-focus;
+a {
+  @apply cursor-pointer;
+}
+
+@utility btn {
+  @apply rounded-lg bg-primary px-4 py-2 text-white hover:cursor-pointer hover:bg-primary-focus;
+}
+
+@utility divider {
+  @apply h-[calc(var(--spacing)*.25)] w-full bg-gray-300;
 }

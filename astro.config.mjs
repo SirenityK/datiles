@@ -3,12 +3,14 @@ import partytown from "@astrojs/partytown";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, envField } from "astro/config";
 
+import solidJs from "@astrojs/solid-js";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [partytown()],
+  integrations: [partytown(), solidJs()],
   experimental: {
     responsiveImages: true,
   },

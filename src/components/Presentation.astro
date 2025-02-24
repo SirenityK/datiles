@@ -1,13 +1,15 @@
 ---
-import Hero from "./Hero.astro";
+import type { ComponentProps } from "astro/types";
 import Heart from "lucide-astro/Heart";
-import datiles from "../assets/datiles.png";
 import Recycle from "lucide-astro/Recycle";
 import Users from "lucide-astro/Users";
-import { description, PageRefs } from "../logic";
-import type { ComponentProps } from "astro/types";
+import community from "../assets/community.png";
+import datiles from "../assets/datiles.png";
+import social from "../assets/social.png";
+import { description, Palette, PageRefs } from "../logic";
+import Dialog from "./Dialog.astro";
 
-const data: (ComponentProps<typeof Hero> & {
+const data: (ComponentProps<typeof Dialog> & {
   Icon: typeof Heart;
   color: string;
 })[] = [
@@ -15,9 +17,9 @@ const data: (ComponentProps<typeof Hero> & {
     title: "Apoya a la comunidad",
     description:
       "Los dátiles llegan a instituciones que cuidan de sectores vulnerables, mejorando su nutrición",
-    image: datiles,
+    image: community,
     Icon: Heart,
-    color: "red",
+    color: Palette.red,
   },
   {
     title: "Reducimos el desperdicio de alimentos",
@@ -25,15 +27,15 @@ const data: (ComponentProps<typeof Hero> & {
       "Aprovechamos el exceso de producción, así evitamos la pérdida innecesaria de alimentos",
     image: datiles,
     Icon: Recycle,
-    color: "rgb(34 197 94)",
+    color: Palette.green,
   },
   {
     title: "Impacto social positivo",
     description:
       "Fomenta la solidaridad en la cultura entre productores, instituciones y comunidad",
-    image: datiles,
+    image: social,
     Icon: Users,
-    color: "blue",
+    color: Palette.blue,
   },
 ];
 ---
@@ -46,19 +48,21 @@ const data: (ComponentProps<typeof Hero> & {
     {description}
   </p>
   <div class="mt-8">
-    <a class="text-white" id="btn" href={PageRefs.contact}>Donar ahora</a>
+    <a class="btn" href={PageRefs.contact}>Donar ahora</a>
   </div>
 </div>
 
-{
-  data.map((obj, index) => (
-    <Hero
-      title={obj.title}
-      description={obj.description}
-      image={obj.image}
-      alternative={index % 2 === 1}
-    >
-      <obj.Icon size="64" color={obj.color} />
-    </Hero>
-  ))
-}
+<div id={PageRefs.reasons}>
+  {
+    data.map((obj, index) => (
+      <Dialog
+        title={obj.title}
+        description={obj.description}
+        image={obj.image}
+        alternative={index % 2 === 1}
+      >
+        <obj.Icon size="64" color={obj.color} />
+      </Dialog>
+    ))
+  }
+</div>

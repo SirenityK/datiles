@@ -4,6 +4,8 @@ import "@fontsource-variable/playfair-display";
 import { GOOGLE_ANALYTICS_ID } from "astro:env/client";
 import { description } from "../logic";
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 const GTagScript = `function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","${GOOGLE_ANALYTICS_ID}");`;
 ---
@@ -24,6 +26,8 @@ const GTagScript = `function a(){dataLayer.push(arguments)}window.dataLayer=wind
     <script type="text/partytown" set:html={GTagScript} />
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>

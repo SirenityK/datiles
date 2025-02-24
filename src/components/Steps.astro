@@ -1,0 +1,25 @@
+---
+import Home from "lucide-astro/Home";
+
+export interface Props {
+  steps: {
+    Icon: typeof Home;
+    color?: string;
+    title: string;
+    description: string;
+  }[];
+}
+const { steps } = Astro.props;
+---
+
+{
+  steps.map((step, _index) => (
+    <div class="rounded-lg bg-white p-6 text-center shadow-md duration-300 hover:scale-110">
+      <div class="flex justify-center">
+        <step.Icon class="mb-4 h-12 w-12" color={step.color} />
+      </div>
+      <h3 class="mb-2 text-xl font-semibold">{step.title}</h3>
+      <p>{step.description}</p>
+    </div>
+  ))
+}

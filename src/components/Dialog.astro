@@ -37,11 +37,13 @@ const classes = restProps?.class;
     <h2 class="text-4xl font-semibold">{title}</h2>
     <p class="text-lg">{description}</p>
   </div>
-  <div class="container p-12 lg:w-1/2">
+  <div class="container inline-grid justify-end px-4 pb-4 md:py-8 md:pr-8">
     <Picture
       class="rounded-xl shadow-2xl"
       formats={["avif", "webp"]}
       src={image}
+      width={900}
+      height={500}
       alt="Dátiles"
     />
   </div>
