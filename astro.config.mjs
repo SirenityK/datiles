@@ -11,12 +11,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [partytown(), solidJs()],
-  experimental: {
-    responsiveImages: true,
-  },
-  image: {
-    experimentalLayout: "responsive",
-  },
+  image: {},
   env: {
     schema: {
       GOOGLE_ANALYTICS_ID: envField.string({

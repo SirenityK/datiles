@@ -4,7 +4,7 @@ import Heart from "lucide-astro/Heart";
 import Recycle from "lucide-astro/Recycle";
 import Users from "lucide-astro/Users";
 import community from "../assets/community.png";
-import datiles from "../assets/datiles.png";
+import figs from "../assets/figs.webp";
 import social from "../assets/social.png";
 import { description, Palette, PageRefs } from "../logic";
 import Dialog from "./Dialog.astro";
@@ -16,7 +16,7 @@ const data: (ComponentProps<typeof Dialog> & {
   {
     title: "Apoya a la comunidad",
     description:
-      "Los dátiles llegan a instituciones que cuidan de sectores vulnerables, mejorando su nutrición",
+      "Los higos llegan a instituciones que cuidan de sectores vulnerables, mejorando su nutrición",
     image: community,
     Icon: Heart,
     color: Palette.red,
@@ -25,7 +25,7 @@ const data: (ComponentProps<typeof Dialog> & {
     title: "Reducimos el desperdicio de alimentos",
     description:
       "Aprovechamos el exceso de producción, así evitamos la pérdida innecesaria de alimentos",
-    image: datiles,
+    image: figs,
     Icon: Recycle,
     color: Palette.green,
   },
@@ -40,10 +40,10 @@ const data: (ComponentProps<typeof Dialog> & {
 ];
 ---
 
-<div
-  class="grid w-full justify-center bg-yellow-100 py-32 text-center xl:py-56"
->
-  <h1 class="font-playfair text-5xl font-bold">Dona dátiles, nutre vidas</h1>
+<div class="grid w-full justify-center bg-fig-cream py-32 text-center xl:py-56">
+  <h1 class="font-playfair text-5xl font-bold text-primary">
+    Dona higos, nutre vidas
+  </h1>
   <p class="mx-2 max-lg:my-6">
     {description}
   </p>

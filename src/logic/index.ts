@@ -9,12 +9,12 @@ export enum PageRefs {
 }
 
 export const Palette = {
-  red: colors.red[500],
-  yellow: colors.yellow[500],
-  green: colors.green[500],
-  blue: colors.blue[500],
+  red: "#c76662",
+  yellow: "#b98555",
+  green: "#8fa044",
+  blue: "#6f7975",
   colors,
 };
 
 export const description =
-  "Tu generosidad puede hacer la diferencia en nuestra comunidad";
+  "Tu donación de higos puede hacer la diferencia en nuestra comunidad";

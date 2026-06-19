@@ -5,8 +5,16 @@
   --font-inter: "Inter Variable", sans-serif;
   --default-font-family: var(--font-inter);
 
-  --color-primary: var(--color-green-800);
-  --color-primary-focus: var(--color-green-700);
+  --color-primary: #4e2f47;
+  --color-primary-focus: #3a2235;
+  --color-fig-cream: #faf1df;
+  --color-fig-mist: #ecefe6;
+  --color-fig-card: #f5ead7;
+  --color-fig-line: #c9b8a6;
+  --color-fig-sage: #8fa044;
+  --color-fig-rose: #c76662;
+  --color-fig-wood: #b98555;
+  --color-fig-slate: #6f7975;
 }
 
 a {
@@ -18,5 +26,5 @@ a {
 }
 
 @utility divider {
-  @apply h-[calc(var(--spacing)*.25)] w-full bg-gray-300;
+  @apply h-[calc(var(--spacing)*.25)] w-full bg-fig-line;
 }
