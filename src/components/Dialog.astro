@@ -31,7 +31,7 @@ const classes = restProps?.class;
   )}
 >
   <div
-    class="3xl:ml-0 3xl:my-0 3xl:mr-0 my-6 mr-2 ml-6 grid flex-grow justify-center gap-3 self-center"
+    class="3xl:ml-0 3xl:my-0 3xl:mr-0 my-6 mr-2 ml-6 grid grow justify-center gap-3 self-center"
   >
     <slot />
     <h2 class="text-4xl font-semibold">{title}</h2>
@@ -42,6 +42,8 @@ const classes = restProps?.class;
       class="rounded-xl shadow-2xl"
       formats={["avif", "webp"]}
       src={image}
+      widths={[380, 640, 760, 900]}
+      sizes="(max-width: 767px) calc(100vw - 2rem), 50vw"
       width={900}
       height={500}
       alt="Higos"

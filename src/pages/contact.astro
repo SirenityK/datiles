@@ -1,51 +1,107 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import User from "lucide-astro/User";
-import ChevronRight from "lucide-astro/ChevronRight";
+import Building2 from "lucide-astro/Building2";
+import BriefcaseBusiness from "lucide-astro/BriefcaseBusiness";
+import ExternalLink from "lucide-astro/ExternalLink";
+import Mail from "lucide-astro/Mail";
+import Phone from "lucide-astro/Phone";
 import { Palette } from "../logic";
-import AtSign from "lucide-astro/AtSign";
 
-const data = [
-  {
-    name: "John Doe",
-    email: "example@example.com",
-  },
-  {
-    name: "Jane Doe",
-    email: "example@example.com",
-  },
-] as const;
+const contact = {
+  institution: "Instituto Tecnológico de Mexicali",
+  area: "Gestión y vinculación",
+  phone: "6865804900",
+  email: "gestion@itmexicali.edu.mx",
+} as const;
+
+const formattedPhone = "686 580 4900";
 ---
 
 <Layout>
-  <div class="m-4 flex justify-center">
+  <div class="mx-4 my-12 flex justify-center md:my-20">
     <Card>
-      <div class="space-y-3 font-playfair">
-        <h1 class="text-2xl font-medium">Datos de contacto</h1>
-        {
-          data.map((item, index) => (
-            <>
-              <div class="space-y-3">
-                {Object.entries(item).map(([key, value]) => (
-                  <div class="flex gap-1 rounded-xl bg-fig-mist p-2">
-                    {key === "name" ? (
-                      <User color={Palette.blue} />
-                    ) : (
-                      <AtSign color={Palette.green} />
-                    )}
-                    <ChevronRight color={Palette.colors.gray[600]} />
-                    <p>{value}</p>
-                  </div>
-                ))}
-                <a href={`mailto:${item.email}`} class="btn font-sans">
-                  Enviar Email a <span class="font-bold">{item.name}</span>
-                </a>
+      <div
+        class="overflow-hidden rounded-2xl bg-white shadow-xl ring-1 shadow-primary/10 ring-primary/10"
+      >
+        <div class="h-2 bg-linear-to-r from-primary via-fig-rose to-fig-sage">
+        </div>
+        <div class="grid gap-8 p-6 md:grid-cols-[1fr_auto] md:p-10">
+          <div class="space-y-6">
+            <div class="space-y-3">
+              <p
+                class="w-fit rounded-full bg-fig-mist px-3 py-1 text-sm font-semibold tracking-wide text-primary uppercase"
+              >
+                Contacto institucional
+              </p>
+              <h1
+                class="font-playfair text-4xl leading-tight font-bold text-primary md:text-5xl"
+              >
+                Coordinémonos
+              </h1>
+              <p class="max-w-2xl text-lg text-primary/80">
+                Escríbenos para resolver dudas, confirmar disponibilidad y
+                coordinar la entrega de higos con el equipo indicado.
+              </p>
+            </div>
+
+            <div class="grid gap-3">
+              <div class="flex items-start gap-3 rounded-xl bg-fig-cream p-4">
+                <Building2 class="mt-1 shrink-0" color={Palette.red} />
+                <div>
+                  <p class="text-sm font-bold text-primary/80">Institución</p>
+                  <p class="text-lg font-semibold text-primary">
+                    {contact.institution}
+                  </p>
+                </div>
               </div>
-              {index !== data.length - 1 && <div class="divider h-0.5" />}
-            </>
-          ))
-        }
+
+              <div class="flex items-start gap-3 rounded-xl bg-fig-mist p-4">
+                <BriefcaseBusiness
+                  class="mt-1 shrink-0"
+                  color={Palette.green}
+                />
+                <div>
+                  <p class="text-sm font-bold text-primary/80">Área</p>
+                  <p class="text-lg font-semibold text-primary">
+                    {contact.area}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside
+            class="grid content-center gap-3 rounded-2xl bg-primary p-5 text-white md:min-w-80"
+          >
+            <div
+              class="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white/15"
+            >
+              <Mail />
+            </div>
+            <p class="font-playfair text-3xl font-bold">Hablemos</p>
+            <p class="text-sm text-white/75">
+              Usa el medio que prefieras. Ambos enlaces están listos para abrir
+              correo o llamada directamente.
+            </p>
+
+            <a
+              href={`mailto:${contact.email}`}
+              class="mt-3 flex items-center justify-between gap-3 rounded-xl bg-white px-4 py-3 font-semibold text-primary transition hover:bg-fig-cream"
+            >
+              <span>{contact.email}</span>
+              <ExternalLink class="shrink-0" size="18" />
+            </a>
+
+            <a
+              href={`tel:+52${contact.phone}`}
+              class="flex items-center justify-between gap-3 rounded-xl border border-white/20 px-4 py-3 font-semibold text-white transition hover:bg-white/10"
+            >
+              <span>{formattedPhone}</span>
+              <Phone class="shrink-0" size="18" />
+            </a>
+          </aside>
+        </div>
       </div>
     </Card>
   </div>
