@@ -1,0 +1,294 @@
+---
+import Building2 from "lucide-astro/Building2";
+import Heart from "lucide-astro/Heart";
+import Leaf from "lucide-astro/Leaf";
+import MapPin from "lucide-astro/MapPin";
+import Recycle from "lucide-astro/Recycle";
+import Truck from "lucide-astro/Truck";
+import Users from "lucide-astro/Users";
+import { Palette, PageRefs } from "../logic";
+
+const themes = [
+  {
+    Icon: Recycle,
+    color: Palette.green,
+    title: "Aprovechamiento y transformación del higo",
+  },
+  {
+    Icon: Users,
+    color: Palette.blue,
+    title: "Desarrollo de capacidades productivas y empresariales",
+  },
+  {
+    Icon: Truck,
+    color: Palette.yellow,
+    title: "Comercialización, estrategias de internacionalización",
+  },
+];
+
+const actions = [
+  "Desarrollo y evaluación de productos derivados del higo con valor agregado.",
+  "Elaboración de prototipos y pruebas piloto.",
+  "Análisis de aspectos técnicos y normativos.",
+  "Investigación sobre problemáticas asociadas al cultivo.",
+  "Capacitación a productores en comercialización, ventas, valor agregado, modelos de negocio y Economía Social y Solidaria.",
+  "Incorporación de estudiantes mediante proyectos de residencia profesional e investigación aplicada.",
+  "Proyectos relacionados con estrategias de internacionalización del higo y sus productos con valor agregado, fortalecimiento logístico y comercial, y acciones de aprovechamiento social de excedentes agroalimentarios mediante iniciativas como “Frutos de Solidaridad”.",
+];
+
+const targetPopulation = [
+  "Productores de higo y unidades productivas del Valle de Mexicali",
+  "Integrantes de organismos del sector Social de la Economía vinculados con la actividad agroalimentaria",
+  "Mujeres emprendedoras",
+  "Estudiantes y docentes participantes en proyectos de investigación",
+];
+
+const organizations = [
+  "INSTITUTO TECNOLÓGICO DE MEXICALI/TECNM",
+  "SECRETARÍA DE AGRICULTURA Y DESARROLLO RURAL DE BAJA CALIFORNIA (SADER-BC)",
+  "GRUPO AGRICOLA SANDERS, S.P.R. DE R.L/HIGOS DE LA FLOR",
+];
+---
+
+<section
+  id={PageRefs.information}
+  class="bg-fig-cream py-20 md:py-28"
+  aria-labelledby="nodess-information-title"
+>
+  <div class="container mx-auto px-4">
+    <div class="grid gap-8 lg:grid-cols-5 lg:items-stretch">
+      <div class="lg:col-span-3 lg:py-4">
+        <p
+          class="mb-4 w-fit rounded-full bg-fig-mist px-3 py-1 text-sm font-semibold tracking-wide text-primary uppercase"
+        >
+          NODESS Higos de la Flor
+        </p>
+        <h2
+          id="nodess-information-title"
+          class="max-w-3xl font-playfair text-4xl leading-tight font-bold text-primary md:text-5xl"
+        >
+          Fortalecimiento de la cadena de valor del higo
+        </h2>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-primary/80">
+          El NODESS Higos de la Flor desarrolla acciones de investigación
+          aplicada, innovación, formación y vinculación orientadas al
+          fortalecimiento de la cadena de valor del higo en el Valle de
+          Mexicali.
+        </p>
+      </div>
+
+      <aside
+        class="flex flex-col justify-between rounded-3xl bg-primary p-6 text-white shadow-xl shadow-primary/15 md:p-8 lg:col-span-2"
+        aria-label="Territorio y localidad atendida"
+      >
+        <div>
+          <div
+            class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/15"
+          >
+            <MapPin />
+          </div>
+          <p
+            class="text-sm font-semibold tracking-wide text-fig-cream/70 uppercase"
+          >
+            Territorio
+          </p>
+          <p class="mt-2 font-playfair text-3xl leading-tight font-bold">
+            Mexicali y Valle de Mexicali, Baja California
+          </p>
+        </div>
+        <div class="mt-8 border-t border-white/20 pt-5">
+          <p class="text-sm text-white/70">Localidades que atienden:</p>
+          <p class="mt-1 text-lg font-semibold">Baja California</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mt-16 border-t border-fig-line/70 pt-12">
+      <div class="mb-8 max-w-3xl">
+        <p class="text-sm font-semibold tracking-wide text-fig-rose uppercase">
+          Temáticas que atienden
+        </p>
+        <h3
+          class="mt-2 font-playfair text-3xl font-bold text-primary md:text-4xl"
+        >
+          Desarrollo agroindustrial sostenible
+        </h3>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-3">
+        {
+          themes.map((theme) => (
+            <article class="rounded-2xl border border-fig-line/70 bg-white p-6 shadow-sm">
+              <theme.Icon class="mb-5 h-10 w-10" color={theme.color} />
+              <h4 class="text-xl leading-snug font-semibold text-primary">
+                {theme.title}
+              </h4>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <section
+      class="mt-12 rounded-3xl bg-primary p-6 text-white shadow-xl shadow-primary/15 md:p-10"
+      aria-labelledby="nodess-actions-title"
+    >
+      <div class="grid gap-8 lg:grid-cols-5 lg:gap-12">
+        <div class="lg:col-span-2">
+          <div
+            class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/15"
+          >
+            <Leaf />
+          </div>
+          <p
+            class="text-sm font-semibold tracking-wide text-fig-cream/70 uppercase"
+          >
+            Actividades o proyectos
+          </p>
+          <h3
+            id="nodess-actions-title"
+            class="mt-2 font-playfair text-3xl leading-tight font-bold md:text-4xl"
+          >
+            Investigación aplicada, innovación, formación y vinculación
+          </h3>
+        </div>
+
+        <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-3">
+          {
+            actions.map((action, index) => (
+              <li class="flex items-start gap-3 rounded-2xl bg-white/10 p-4">
+                <span
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-fig-rose text-sm font-bold text-white"
+                  aria-hidden="true"
+                >
+                  {index + 1}
+                </span>
+                <span class="leading-7 text-white/90">{action}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      <section
+        class="rounded-3xl border border-fig-line/70 bg-white p-6 shadow-sm md:p-8"
+        aria-labelledby="nodess-population-title"
+      >
+        <div class="mb-6 flex items-start gap-4">
+          <div
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-fig-mist"
+          >
+            <Users color={Palette.blue} />
+          </div>
+          <div>
+            <p
+              class="text-sm font-semibold tracking-wide text-fig-rose uppercase"
+            >
+              Población objetivo
+            </p>
+            <h3
+              id="nodess-population-title"
+              class="mt-1 font-playfair text-3xl font-bold text-primary"
+            >
+              A quiénes se dirige
+            </h3>
+          </div>
+        </div>
+        <ul class="space-y-3">
+          {
+            targetPopulation.map((person) => (
+              <li class="flex items-start gap-3 text-primary/85">
+                <span
+                  class="mt-2 h-2 w-2 shrink-0 rounded-full bg-fig-sage"
+                  aria-hidden="true"
+                />
+                <span class="leading-7">{person}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section
+        class="rounded-3xl border border-fig-line/70 bg-white p-6 shadow-sm md:p-8"
+        aria-labelledby="nodess-organizations-title"
+      >
+        <div class="mb-6 flex items-start gap-4">
+          <div
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-fig-mist"
+          >
+            <Building2 color={Palette.red} />
+          </div>
+          <div>
+            <p
+              class="text-sm font-semibold tracking-wide text-fig-rose uppercase"
+            >
+              Participación
+            </p>
+            <h3
+              id="nodess-organizations-title"
+              class="mt-1 font-playfair text-3xl font-bold text-primary"
+            >
+              Organizaciones participantes
+            </h3>
+          </div>
+        </div>
+        <ul class="space-y-3">
+          {
+            organizations.map((organization) => (
+              <li class="flex items-start gap-3 text-primary/85">
+                <span
+                  class="mt-2 h-2 w-2 shrink-0 rounded-full bg-fig-rose"
+                  aria-hidden="true"
+                />
+                <span class="leading-7 break-words">{organization}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+
+    <section
+      class="mt-6 overflow-hidden rounded-3xl border border-fig-line/70 bg-fig-mist p-6 shadow-sm md:p-8"
+      aria-labelledby="nodess-beneficiaries-title"
+    >
+      <div class="flex items-start gap-4">
+        <div
+          class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white"
+        >
+          <Heart color={Palette.red} />
+        </div>
+        <div>
+          <p
+            class="text-sm font-semibold tracking-wide text-fig-rose uppercase"
+          >
+            Cantidad de beneficiarios
+          </p>
+          <h3
+            id="nodess-beneficiaries-title"
+            class="mt-1 font-playfair text-3xl font-bold text-primary"
+          >
+            Resultados reportados
+          </h3>
+        </div>
+      </div>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <p class="rounded-2xl bg-white p-5 text-lg leading-8 text-primary/85">
+          Se han impartido cursos a
+          <strong class="block font-playfair text-4xl text-primary"
+            >35 productores</strong
+          >
+        </p>
+        <p class="rounded-2xl bg-white p-5 text-lg leading-8 text-primary/85">
+          <strong class="block font-playfair text-4xl text-primary"
+            >3 estudiantes</strong
+          >
+          con proyectos de residencia profesional
+        </p>
+      </div>
+    </section>
+  </div>
+</section>

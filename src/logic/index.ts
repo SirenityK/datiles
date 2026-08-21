@@ -1,6 +1,8 @@
 import colors from "tailwindcss/colors";
 
 export enum PageRefs {
+  information = "information",
+  informationHash = `/#${PageRefs.information}`,
   reasons = "reasons",
   reasonsHash = `/#${PageRefs.reasons}`,
   joinUs = "how-to-contribute",
